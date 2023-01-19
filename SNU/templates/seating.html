@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap-social.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <title>Questions</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+  <form action="seatBooked" method="POST">
+    {% set count = namespace(value=1) %}
+    <h2><span>PLATINUM(₹250)</h2></span>
+    {% for i in range(3) %}
+    {% for j in range(6) %}
+   
+  
+  {% if j >= 3 %}
+  <!-- <div class="" style="display: inline"> -->
+  <!-- <button type="button"  class="btn bt btn-primary">Primary</button> -->
+  <input class="seatSpace butt" type="checkbox" name='"seat' value="{{count.value}}" data-toggle="toggle" data-on="Hello<br>World" data-off="Goodbye<br>World"/>
+
+
+
+  {% set count.value = count.value + 1 %}
+  <!-- {{ i }}{{ j }}
+  {{count.value}} -->
+<!-- </div> -->
+  {% else %}
+  <!-- <button type="button" name={{count}} class="bt btn btn-primary">Primary</button> -->
+
+  <input class="butt" type="checkbox" name="seat" id={{count.value}} value="{{count.value}}"  />
+
+
+
+
+  {% set count.value = count.value + 1 %}
+  <!-- {{ i }}{{ j }}
+    {{count.value}} -->
+  {% endif %}
+
+{% endfor %}
+<br>
+{% endfor %}
+
+<h2 font-family: 'Playfair Display', serif;><span>GOLD(₹200)</h2></span>
+<div style="text-align: center;">
+{% for i in range(6) %}
+    {% for j in range(17) %}
+    <!-- <button type="button" name={{count}} class="btn bt btn-primary">Primary</button> -->
+    {% if i == 3 and j==0 %}
+    <h2><span>SILVER(₹150)</h2></span>
+    {% endif %}
+    <input class="butt" type="checkbox" name="seat" value={{count.value}}/>
+    {% set count.value = count.value + 1 %}
+    {% endfor %}
+<br>
+{% endfor %}
+
+<button type="submit" class="btn btn-primary">Confirm Booking</button>
+</div>
+</form>
+</body>
+
+</html>
